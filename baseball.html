@@ -42,22 +42,22 @@
 							<section class="post">
 								<header class="major">									
 									<h1>Baseball CNN</h1>
-									<p>A binary classifier that uses a convolutional neural network to classify dyanmic image data from a baseball video game.</p>
+									<p>A binary classifier that uses a convolutional neural network to classify dynamic image data from a baseball video game.</p>
 								</header>								
 								<h2>Background</h2>
 								<p>While taking my <a href="dl.html">Deep Learning</a> course in Fall 2019, I was given the option to do an implementation 
 								of a deep learning concept as a term project. This assignment had a ton of freedom. My partner, Henry Herzfeld 
-								<a href="https://github.com/henryherzfeld?tab=overview&org=unitedstates&from=2019-10-01&to=2019-10-15">(Github)</a>
+								<a href="https://github.com/henryherzfeld?tab=overview&org=unitedstates&from=2019-10-01&to=2019-10-15">(GitHub)</a>
 								<a href="https://www.linkedin.com/in/henry-herzfeld-ba799893/">(LinkedIn)</a>, and I knew that we wanted to do a CNN, 
 								but we were struggling to come up with a unique idea. Knowing that Deep Learning can be applied to anything if one can clearly 
 								define a problem, I came up with a unique idea: what if we use a CNN as a step to improve performance in a sports video game?</p>
 								<p>As of this writing, MLB The Show is a baseball simulation video game developed annually by Sony San Diego Studios primarily for 
-								the Playstation 4. It is a game franchise that I started playing religiously in 2014 and still enjoy to this day. It provides one
+								the PlayStation 4. It is a game franchise that I started playing religiously in 2014 and still enjoy to this day. It provides one
 								of the more convincing simulations of MLB action that exists on the market. It does a very nice job of simulating the difficulty of
 								arguably one of the hardest things in sports: hitting a baseball.</p>
-								<div class="image fit"><img src="images/MTS 20 Cover.jpg" alt="" /></div>
+								<div class="image "><img src="images/MTS 20 Cover.jpg" alt=""/></div>
 								<p>To demonstrate this, I invite the reader to watch the video below of batting gameplay in MLB The Show 19:</p>
-								<div><video width="900" height="900" controls><source type="video/mp4" src="videos/MLB NN Data_.mp4"></video></div>
+								<div><video width="450" height="450" controls><source type="video/mp4" src="videos/MLB NN Data_.mp4"></video></div>
 								<p>From this footage, you can see that the player has very little time to react to the ball coming towards them, right? In fact, this
 								video was recorded at 30 frames per second. We found that we can take 15 frames from when the ball is released and roughly obtain the
 								frame where the ball reaches home plate. This means that it takes roughly 0.5 seconds from the time the pitch is thrown for it to reach 
@@ -65,9 +65,9 @@
 								<ol>
 									<li>The box in the center of the screen that disappears once the pitch is thrown and reappears once the pitch reaches home plate
 									represents the strike zone. A ball that is inside the box is a strike, and a ball that is outside the zone is a ball. It is 
-									generally good practice for a batter not to swing at any balls. So, a succesful player should be able to determine from the path
+									generally good practice for a batter not to swing at any balls. So, a successful player should be able to determine from the path
 									of a pitch whether it is a ball or a strike in the 0.5 seconds mentioned.</li> 
-									<li>When should a player swing? This is something that for a while I could only answer with trial and error eith feedback from the 
+									<li>When should a player swing? This is something that for a while I could only answer with trial and error with feedback from the 
 									game. But, thanks to the footage obtained for this project, I now have a concrete answer. If you look closely, you should be able to 
 									see a shadow underneath	the baseball as it travels towards home plate. Pay attention to the point where	green grass becomes
 									brown dirt in front of home plate. Generally, if the player swings:</li>
@@ -88,7 +88,7 @@
 								the data. To accomplish this, I used the PS4's built in screen-recording feature. I sat down and recorded several unique, full, 9-inning
 								games where I did not swing at any pitches. Then we copied this footage onto a USB drive to examine it from our machines.</p>
 								<h3>Labeling</h3>
-								<p>Next comes the biggest challenge, labeling. Image classificaion problems often have thousands or tens of thousands of images to use 
+								<p>Next comes the biggest challenge, labeling. Image classification problems often have thousands or tens of thousands of images to use 
 								as data. Generally, for a neural network model to measure its performance when it makes a classification, it usually checks its 
 								prediction against a "ground-truth answer." So, any pitches used as part of our dataset need to be labeled as "ball" or strike 
 								for the purposes of measuring the performance of the network. It is unrealistic to go through the video manually, pick out every

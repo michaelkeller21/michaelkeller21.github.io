@@ -41,12 +41,12 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">									
-									<h1>Good Posture Application(GPA</h1>
+									<h1>Good Posture Application(GPA)</h1>
 									<p>An application designed to track posture from a camera in real time and provide feedback on a user's posture.</p>								
 								</header>								
 								<p>During my time at the <a href="https://mpcrlab.com/">Machine Perception and Cognitive Robotics Lab (MPCR)</a> at FAU, I helped to lead a team of students to
 								develop an application that could track posture in real-time. We called this the Good Posture Application (GPA). My team members were Henry Herzfeld 
-								<a href="https://github.com/henryherzfeld?tab=overview&org=unitedstates&from=2019-10-01&to=2019-10-15">(Github)</a>
+								<a href="https://github.com/henryherzfeld?tab=overview&org=unitedstates&from=2019-10-01&to=2019-10-15">(GitHub)</a>
 								<a href="https://www.linkedin.com/in/henry-herzfeld-ba799893/">(LinkedIn)</a>, and Paul Morris <a href="https://github.com/pmorris2012">(Github).</a></p>
 								<p>I came up with this idea with my physical therapist at the time, <a href="https://www.ppt4kids.com/about/physical-therapists/">Mary Pengelley</a>. Because of my
 								cerebral palsy, I have a tendency to lean more to my right side instead of sitting straight. It's an unconscious thing, one I try to be more aware of, but something
@@ -54,31 +54,31 @@
 								I realized that such an app could be used for anyone that sits at a desk most of the time, to keep them from developing long-term postural issues. So the GPA team was
 								born.</p>
 								<p>In the beginning, we used <a href="https://developer.microsoft.com/en-us/windows/kinect/">Microsoft's Kinect 2.0 technology.</a></p>
-								<div class="image main"> <img src="images/kinect.jpg"></div>
+								<div class="image"> <img src="images/kinect.jpg" width=470 height=265></div>
 								<p>This camera draws a 2D dynamic skeleton around a person when it sees one, and follows the person until they leave the camera feed. We realized that we didn't need all 
 								of the points of the Kinect	skeleton for our purposes, so we removed all points except the ones representing the spine and the hips. Using these points, we were able
 								to give the user a score representing the quality of their posture. This was later changed to a grade for younger audiences. An example of this demo version of our 
-								application in aciton can be seen below: </p>
-								<div class="image main"><img src="images/kinect demo.jpg"></div>
-								<p>We eventually envisioned this as a smartphone applicaiton, as ahown above, but we haven't been able to accomplish this to this point.</p>
+								application in action can be seen below: </p>
+								<div class="image"><img src="images/kinect demo.jpg" width=480 height=270></div>
+								<p>We eventually envisioned this as a smartphone application, as shown above, but we haven't been able to accomplish this to this point.</p>
 								<p>As we continued to work on this project, we realized that support for the Kinect 2.0 was diminishing. We were also acutely aware that this current implementation
-								does not use Macihne Laerning at all. So, we set out to correct these two issues.</p>
+								does not use Machine Learning at all. So, we set out to correct these two issues.</p>
 								<p>The latest version of the GPA is thus a binary classifier capable of classifying "good" vs "bad" posture. These terms are incredibly subjective and difficult to
-								define. For our purpses, we defined "good" posture as someone who was sitting up straight and "bad" posture as someone who was leaning to the side or slumping over.
+								define. For our purposes, we defined "good" posture as someone who was sitting up straight and "bad" posture as someone who was leaning to the side or slumping over.
 								We collected this posture data from a PC webcam. We asked a few people to sit in a chair in front of the camera and recorded frames of them sitting in these "good" or 
 								"bad" positions. An example of each is shown below: </p>
-								<div class="image main"><img src="images/Classifier sample.jpg"></div>
+								<div class="image"><img src="images/Classifier sample.jpg" width=480 hegiht=270></div>
 								<p>We then annotated each of these images with the skeleton from the <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">Openpose</a> library from
 								CMU. This skeleton served a similar purpose to the Kinect skeleton that we used in the preliminary version of this app-- to track the posture of a participant.
 								The OpenPose skeleton contains the following skeleton points, shown below:</p>
-								<div class="image main"><img src="images/openpose.png"></div>
-								<p>We recognize that this is a very small dataset for a neural network classifer, but we created this dataset only as a proof of concept and did not mean it to be 
+								<div class="image"><img src="images/openpose.png" width=181 height=319></div>
+								<p>We recognize that this is a very small dataset for a neural network classifier, but we created this dataset only as a proof of concept and did not mean it to be 
 								representative of the effectiveness of a posture classifier on a larger scale. Here is a breakdown of the composition of the classifier, and the results on the dataset
 								described before:</p>
-								<div class="image main"> <img src="images/Classifier Composition.jpg"></div>
-								<div class="image main"> <img src="images/Classifier results.jpg"></div>
+								<div class="image"> <img src="images/Classifier Composition.jpg" width=480 hegiht=270></div>
+								<div class="image"> <img src="images/Classifier results.jpg" width=480 hegiht=270></div>
 								<p>As you can see, we used a three-hidden layer neural network to classify these posture images, with promising results. For future work, we wanted to change our 
-								network to a convolutional neural network (CNN), and also use a camera that is specialiized for collecting pose data. </p>
+								network to a convolutional neural network (CNN), and also use a camera that is specialized for collecting pose data. </p>
 								<p>The GitHub repository for the classifier described in this article can be found <a href="https://github.com/mpcrlab/GPA-Classifier">here.</a></p>
 							</section>
 
