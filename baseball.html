@@ -92,7 +92,7 @@
 								as data. Generally, for a neural network model to measure its performance when it makes a classification, it usually checks its 
 								prediction against a "ground-truth answer." So, any pitches used as part of our dataset need to be labeled as "ball" or strike 
 								for the purposes of measuring the performance of the network. It is unrealistic to go through the video manually, pick out every
-								moment where a pitch begins/ends, and label it manually based on feedback from the game. Henry wrote a <a href="#">labeling script</a> to allow
+								moment where a pitch begins/ends, and label it manually based on feedback from the game. Henry wrote a labeling script to allow
 								us to automate this process for each game I recorded. The script wasn't perfect, but it reduced the time it would take to manually label
 								significantly. </p>
 								<p>Through this process we were able to obtain 1080 pitches. We stacked 15 consecutive frames of the ball traveling as a single pitch instance. 
@@ -106,7 +106,14 @@
 								<div class="image"><img src="images/ball1_0.png" width="115" height="110" alt="" /></div>
 								<div class="image"><img src="images/ball1_14.png" width="115" height="110" alt="" /></div>
 								<h3>Frame Differencing</h3>
-								<p></p>
+								<p>Now that we have our downsampled images, we must perform one more transformation before we begin the network training. Since we chose to stack 15 frames together
+								to represent a single pitch instance, we subtracted two of the frames from each other to obtain a resulting image showing the difference between the two frames. We 
+								trained our CNN on these differences, in an attempt to get the network to recognize the motion of the ball. This is known as frame differencing.</p>
+								<h3>Experiments</h3>
+								<p>We trained a CNN using several different well-known architectures from research. Using each of these architectures, we ran the train and test process 10 times
+								using 5 and 10 fold cross validation. The main performance metric we used to compare network architecture performance was accuracy.</p>
+								<h2>Results</h2>
+								<p>You can view the results of the experiments described above in the "Results" folder of the Github repo found <a href="https://github.com/michaelkeller21/MTS-CNN-Project">here</a>.</p>
 							</section>
 						</div>
 				<!-- Footer -->
